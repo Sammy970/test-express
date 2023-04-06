@@ -26,9 +26,15 @@ app.get('/', function (req, res, next) {
 })
 
 app.post('/login', function (req, res, next) {
-    req.session.user = req.body.user
+    req.session.user = {
+        "data1": req.body.user,
+        "data2": req.body.pass
+
+    }
     console.log(req.session.user)
-    res.end('data:' + req.session.user)
+    res.write('<p>username for session:' + req.session.user.data1 + '</p>')
+    res.end('<p>password for session:' + req.session.user.data2 + '</p>')
+
 })
 
 
