@@ -27,6 +27,7 @@ app.get('/', function (req, res, next) {
 
 app.post('/login', function (req, res, next) {
     req.session.user = req.body.user
+    console.log(req.session.user)
     res.end('data:' + req.session.user)
 })
 
